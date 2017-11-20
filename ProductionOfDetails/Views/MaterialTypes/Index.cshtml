@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProductionOfDetails.MaterialTypes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>MaterialTypes</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeMaterial)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeMaterial)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMaterial">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdMaterial">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMaterial">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

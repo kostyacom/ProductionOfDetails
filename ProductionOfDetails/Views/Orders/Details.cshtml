@@ -1,0 +1,60 @@
+﻿@model ProductionOfDetails.Orders
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Orders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailsAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DetailsAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountOrdersOnDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AmountOrdersOnDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Chek)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Chek)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdClientNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdClientNavigation.IdClient)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdEmployeeNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEmployeeNavigation.IdEmployee)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdOrder">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

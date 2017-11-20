@@ -1,0 +1,54 @@
+﻿@model ProductionOfDetails.Invoices
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Invoices</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdEmployeeNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEmployeeNavigation.IdEmployee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdMaterialNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdMaterialNavigation.IdMaterial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSupplierNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdSupplierNavigation.IdSupplier)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdInvoice">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
