@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ProductionOfDetails.Users>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+<head>
+    <title>Production_of_details</title>
+</head>
+<body>
+    <h3 style="margin-left:43%">@ViewData["Title"]</h3>
+    <button type="button" class="btn btn-success" id="button" onclick="location.href='@Url.Action("Login", "Users")'">
+        Login
+    </button><br><br><br>
+    <button type="button" class="btn btn-success" id="button" onclick="location.href='@Url.Action("Registration", "Users")'">
+        Registration
+    </button>
+</body>
+</html>

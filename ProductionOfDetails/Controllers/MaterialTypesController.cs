@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProductionOfDetails;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProductionOfDetails.Controllers
 {
+    [Authorize]
     public class MaterialTypesController : Controller
     {
         private readonly Production_of_detalsContext _context;

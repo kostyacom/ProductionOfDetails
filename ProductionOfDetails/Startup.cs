@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace ProductionOfDetails
 {
@@ -24,6 +25,12 @@ namespace ProductionOfDetails
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<Production_of_detalsContext>(options => options.UseSqlServer(connection));
+            // установка конфигурации подключения
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => //CookieAuthenticationOptions
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Users/Login");
+                });
             services.AddMvc();
         }
 
@@ -34,6 +41,7 @@ namespace ProductionOfDetails
             {
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
+                app.UseAuthentication();
             }
             else
             {
@@ -46,7 +54,7 @@ namespace ProductionOfDetails
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Invoices}/{action=Index}/{id?}");
+                    template: "{controller=Users}/{action=Index}/{id?}");
             });
         }
     }

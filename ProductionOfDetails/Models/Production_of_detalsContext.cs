@@ -13,6 +13,7 @@ namespace ProductionOfDetails
         public virtual DbSet<MaterialTypes> MaterialTypes { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
 
         public Production_of_detalsContext(DbContextOptions<Production_of_detalsContext> options): base(options)
         {
@@ -128,6 +129,23 @@ namespace ProductionOfDetails
                 entity.Property(e => e.Adress).HasMaxLength(50);
 
                 entity.Property(e => e.Name).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Users>(entity =>
+            {
+                entity.HasKey(e => e.UserId);
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
         }
     }
